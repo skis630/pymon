@@ -51,6 +51,11 @@ h1{
     background-color: brown;
 }
 
+.filter.clicked{
+    color: brown;
+    font-weight: bold;
+}
+
 .ribbon {
     position: absolute;
     right: -5px; top: -5px;

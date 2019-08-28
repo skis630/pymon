@@ -13,5 +13,34 @@
     </head>
     <body>
         {% block app %}{% endblock %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('.game').hide();
+                $('.game.open').show();
+            })
+        </script>
+        <script>
+            $('.filter').click(function(e) {
+                // Highlight clicked heading
+                $('.filter').removeClass('clicked');
+                $(this).addClass('clicked');
+
+                // List relevant games
+                let status = $(this).text();
+                if (status == 'All') {
+                    $('.game').show();
+                } else if (status == 'Won') {
+                    $('.game').hide();
+                    $('.game.won').show();
+                } else if (status == 'Failed') {
+                    $('.game').hide();
+                    $('.game.failed').show();
+                } else if (status == 'Open') {
+                    $('.game').hide();
+                    $('.game.open').show();
+                }
+            });
+        </script>
     </body>
 </html>
