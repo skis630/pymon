@@ -3,6 +3,7 @@ import {getGameId, ajax} from "../utils"
 import Simon from "./simon"
 import Players from "./players"
 import Sequence from "./sequence"
+import BackBtn from "./back"
 
 export default class SimonGame extends React.Component {
     constructor(){
@@ -32,6 +33,7 @@ export default class SimonGame extends React.Component {
     render() {
         return <div className="main">
                 <div className="center">
+                    <BackBtn back={window.location.href.split("/")[3]}></BackBtn>
                     <Simon  sequence={this.state.game.sequence} disabled={this.state.user.status != "turn"} showPlayBtn={this.state.user.status == "new"}/>
                     <Sequence sequence={this.state.game.sequence} step={this.state.game.step} />
                 </div>

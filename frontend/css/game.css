@@ -211,3 +211,27 @@
 .game-status.open{
     color:blue;
 }
+
+#back{
+    position: relative;
+    left: calc(-50% + 7%);
+    top: 5%;
+}
+
+.arrow{
+    display: inline-block;
+}
+
+#arrow-head{
+    border-width: 30px;
+    border-color: transparent #333 transparent transparent;
+    border-style: solid;
+}
+
+#arrow-body{
+    width: 60px;
+    background-color: #333;
+    height: 30px;
+    position: relative;
+    top: -15px;
+}
