@@ -7,11 +7,17 @@ import {getGameId, ajax} from "../utils"
 export default class Simon extends React.Component {
     constructor(props){
         super(props);
-        this.state = {activeBtn:"none", sequenceStep:0};
+        this.state = {activeBtn:"none", sequenceStep:0, disabled: true};
         this.sounds = {};
         BUTTONS.map(b => {
             this.sounds[b] = new Audio(`/sounds/${b}.mp3`);
         });
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.disabled === false) {
+            this.setState({disabled: false})
+        } 
     }
 
     activateBtn(color, userInitiated){
@@ -22,6 +28,7 @@ export default class Simon extends React.Component {
             setTimeout(() => { this.setState({activeBtn:"none"})}, 500);
         });
         if (userInitiated){
+            this.setState({disabled: true})
             ajax(`/games/${getGameId()}/turn`, {method: 'POST', body: JSON.stringify({"color":color})});
         }
     }
@@ -47,7 +54,7 @@ export default class Simon extends React.Component {
     render() {
         return <div className="simon" >
             {BUTTONS.map(b => (
-                <SimonBtn  key={b} color={b} active={this.state.activeBtn == b} disabled={this.props.disabled} clickAction={this.activateBtn.bind(this)} />
+                <SimonBtn  key={b} color={b} active={this.state.activeBtn == b} disabled={this.props.disabled || this.state.disabled} clickAction={this.activateBtn.bind(this)} />
             ))}
             { this.state.sequenceStep == 0 && this.props.showPlayBtn &&
             <button className="play-btn" onClick={this.playSequence.bind(this)}>Play</button>

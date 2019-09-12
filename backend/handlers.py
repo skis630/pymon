@@ -14,6 +14,7 @@ def status(game_id):
 @app.post('/games/<game_id>/players')
 def joinGameHandler(game_id):
     playerName = request.get_cookie("player")
+    print(playerName)
     result = controller.joinGame(game_id, playerName)
     return utils.jsonResponse(response, {"result":result})
 
