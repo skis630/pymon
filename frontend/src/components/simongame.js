@@ -1,9 +1,14 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import $ from 'jquery';
+import Popper from 'popper.js';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import React from "react";
-import {getGameId, ajax} from "../utils"
-import Simon from "./simon"
-import Players from "./players"
-import Sequence from "./sequence"
-import BackBtn from "./back"
+import {getGameId, ajax} from "../utils";
+import Simon from "./simon";
+import Players from "./players";
+import Sequence from "./sequence";
+import BackBtn from "./back";
+import Modal from "../components/modal";
 
 export default class SimonGame extends React.Component {
     constructor(){
@@ -21,6 +26,8 @@ export default class SimonGame extends React.Component {
                 //Poll the status only if the game is not over
                 if (newStatus.game.status != "failed" && newStatus.game.status != "won"){
                     setTimeout(() => {this.gameLoop()}, 2000);
+                } else if (newStatus.game.status == "won"){
+                    $("#myModal").modal();
                 }
              });
         });
@@ -35,6 +42,7 @@ export default class SimonGame extends React.Component {
                 <div className="center">
                     <BackBtn></BackBtn>
                     <Simon  sequence={this.state.game.sequence} disabled={this.state.user.status != "turn"} showPlayBtn={this.state.user.status == "new"}/>
+                    <Modal player={this.state.players.filter(player => player["status"] == "won")} />
                     <Sequence sequence={this.state.game.sequence} step={this.state.game.step} />
                 </div>
                 <div className="side">

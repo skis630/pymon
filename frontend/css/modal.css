@@ -1,0 +1,9 @@
+.modal-content {
+    background-image: url('https://media.giphy.com/media/112RGZxHnf9uTK/giphy.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#myModal, .modal-footer .btn, .modal-header .close  {
+    color: aliceblue;
+}
