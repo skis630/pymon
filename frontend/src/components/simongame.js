@@ -28,6 +28,8 @@ export default class SimonGame extends React.Component {
                     setTimeout(() => {this.gameLoop()}, 2000);
                 } else if (newStatus.game.status == "won"){
                     $("#myModal").modal();
+                } else if (newStatus.game.status == "failed") {
+                    $("#myModal").modal();
                 }
              });
         });
@@ -42,7 +44,7 @@ export default class SimonGame extends React.Component {
                 <div className="center">
                     <BackBtn></BackBtn>
                     <Simon  sequence={this.state.game.sequence} disabled={this.state.user.status != "turn"} showPlayBtn={this.state.user.status == "new"}/>
-                    <Modal player={this.state.players.filter(player => player["status"] == "won")} />
+                    <Modal players={this.state.players.filter(player => player["status"] == this.state.game.status)} outcome={this.state.game.status} />
                     <Sequence sequence={this.state.game.sequence} step={this.state.game.step} />
                 </div>
                 <div className="side">

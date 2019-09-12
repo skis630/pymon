@@ -1,9 +1,16 @@
-.modal-content {
+.modal-content.won {
     background-image: url('https://media.giphy.com/media/112RGZxHnf9uTK/giphy.gif');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#myModal, .modal-footer .btn, .modal-header .close  {
+.modal-content.failed {
+    background-image: url('https://media.giphy.com/media/dkuZHIQsslFfy/giphy.gif');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.won.modal-content, .won .modal-body, .modal-footer .btn, .won .modal-header .close  {
     color: aliceblue;
 }
+
