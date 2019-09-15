@@ -12,11 +12,14 @@
         <form action="/players" method="POST">
             <label>Name<input type="text" name="name" required></label>
             <label>Avatar </label>
-            <div class="drop-down">
-                <select name="avatar">
-                    <option value="ginger">Ginger</option>
-                </select>
+            <div id="avatar-picker">
+                <div class="avatar"></div>
+                <div class="avatar"></div>
+                <div class="avatar"></div>
+                <div class="avatar"></div>
+                <div class="avatar"></div>
             </div>
+            <input id="avatar" type="hidden" name="avatar">
             <input class="modal-btn clickable" type="submit" value="Go">
         </form>
     </div>

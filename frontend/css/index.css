@@ -39,14 +39,52 @@ input{
     font-size: 20px;
     border:none;
     border-bottom: 2px solid #999;
+    margin-bottom: 20px;
     width: 100%;
     background-color: transparent;
     outline:none;
     color:#333;
 }
 
-select#avatar option[value="ginger"]   {
-     background-image: url('https://previews.123rf.com/images/olleg/olleg1804/olleg180400152/99416834-boy-avatar-facial-expression-redhead-boy-vector-illustration.jpg');
-    }
-select#gender option[value="female"] { background-image:url(female.png); }
-select#gender option[value="others"] { background-image:url(others.png); }
+#avatar-picker{
+    margin-top: 15px;
+}
+
+.avatar{
+    background-repeat: no-repeat;
+    background-size: cover; 
+    display: inline-block;
+    width: 20%;
+    height: 60px;
+    cursor: pointer;
+    border: 3px outset #999;
+}
+
+.avatar.clicked{
+    background-color: #999;
+    border: 3px inset #333;
+}
+
+.avatar:hover{
+    background-color: #999;
+}
+
+.avatar:first-child{
+   background-image: url('https://myrealdomain.com/images/boy-avatar-1.png');
+}
+
+.avatar:nth-child(2){
+    background-image: url('https://cdn1.iconfinder.com/data/icons/avatar-vol-8/512/7-512.png');
+}
+
+.avatar:nth-child(3){
+    background-image: url('https://cdn3.iconfinder.com/data/icons/diversity-avatars/64/disco-woman-black-512.png');
+}
+
+.avatar:nth-child(4){
+    background-image: url('https://2atstartup.com.au/wp-content/uploads/2019/05/girl-avatar.png');
+}
+
+.avatar:nth-child(5){
+    background-image: url('https://cdn0.iconfinder.com/data/icons/people-avatar-flat/64/girl_blonde_pony_tail_people_woman_teenager_avatar-512.png');
+}

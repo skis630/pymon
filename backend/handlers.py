@@ -34,7 +34,8 @@ def turnHandler(game_id):
 @app.post('/players')
 def newPlayerHandler():
     playerName = request.forms.get("name")
-    controller.createPlayer(playerName)
+    avatar = request.forms.get("avatar")
+    controller.createPlayer(playerName, avatar)
     response.set_cookie("player", playerName, None, max_age=3600000, path='/')
     redirect("/games")
 

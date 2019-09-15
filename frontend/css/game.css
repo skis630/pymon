@@ -235,3 +235,7 @@
     position: relative;
     top: -15px;
 }
+
+img.avatar{
+    height: 30px;
+}

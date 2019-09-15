@@ -5,8 +5,8 @@ def createGame(name, creator):
     sequence = utils.generateSequence()
     db.newGame(name, creator, sequence)
 
-def createPlayer(name):
-    db.newPlayer(name)
+def createPlayer(name, avatar):
+    db.newPlayer(name, avatar)
 
 def gameExists(game_id):
     return db.getGame(game_id)
@@ -28,12 +28,26 @@ def generateGameStatus(game_id, player_id):
     currentGame = db.getGame(game_id)
     currentGame["sequence"] = currentGame["sequence"].split(",")
     gamePlayers = db.getGamePlayers(game_id)
+    gamePlayersV2 = db.getGamePlayersV2(game_id)
+    # num_of_players = len(gamePlayers)
+    # if num_of_players > 1:
+    #     gamePlayersIds = tuple([player["player"] for player in gamePlayers])
+    #     print(gamePlayersIds)
+    #     gameAvatars = db.getGameAvatars(gamePlayersIds)
+    #     for i in range(num_of_players):
+    #         gamePlayers[i]["avatar"] = gameAvatars[i]["avatar"]
+
+    # elif num_of_players == 1:
+    #     gamePlayersIds = gamePlayers[0]["player"]
+    #     gameAvatars = db.getFirstAvatar(gamePlayersIds)
+    #     gamePlayers[0]["avatar"] = gameAvatars["avatar"]
+   
     currentPlayer["status"] = "viewer"
-    for p in gamePlayers:
+    for p in gamePlayersV2:
         if p["player"] == player_id:
             currentPlayer["status"] = p["status"]
             break
-    return {"game":currentGame,"players":gamePlayers, "user":currentPlayer}
+    return {"game":currentGame,"players":gamePlayersV2, "user":currentPlayer}
 
 def playTurn(game_id, player_id, color):
     currentGame = db.getGame(game_id)

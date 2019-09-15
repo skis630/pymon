@@ -30,13 +30,10 @@ export default class SimonGame extends React.Component {
     gameLoop(){
         ajax(`/games/${getGameId()}/status`, {},  (newStatus) => {
             this.setState(() => (newStatus), () => {
-                //Poll the status only if the game is not over
+                //Pull the status only if the game is not over
                 if (newStatus.game.status != "failed" && newStatus.game.status != "won"){
                     setTimeout(() => {this.gameLoop()}, 2000);
                 } 
-                // else {
-                //     $("#myModal").modal();
-                // }
              });
         });
     }
