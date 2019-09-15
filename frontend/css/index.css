@@ -44,3 +44,9 @@ input{
     outline:none;
     color:#333;
 }
+
+select#avatar option[value="ginger"]   {
+     background-image: url('https://previews.123rf.com/images/olleg/olleg1804/olleg180400152/99416834-boy-avatar-facial-expression-redhead-boy-vector-illustration.jpg');
+    }
+select#gender option[value="female"] { background-image:url(female.png); }
+select#gender option[value="others"] { background-image:url(others.png); }

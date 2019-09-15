@@ -1,0 +1,19 @@
+{% extends "./backend/pages/base.html" %}
+{% block head %}
+<link href="/css/scores.css?v={{version}}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block app %}
+<h1 id="heading">Top Players</h1>
+
+<table>
+    <tr>
+        <th>User</th> <th>Games Won</th>
+    </tr>
+    {% for p in players %}
+    <tr>
+        <td>{{p.player}}</td> <td>{{p.games_won}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

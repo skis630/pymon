@@ -20,7 +20,8 @@ def joinGame(game_id, player_id):
         return db.joinGame(game_id, player_id)
     return False
 
-
+def getTopplayers():
+    return db.getTopScores()
 
 def generateGameStatus(game_id, player_id):
     currentPlayer = {"name":player_id}

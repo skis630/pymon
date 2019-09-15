@@ -20,17 +20,23 @@ export default class SimonGame extends React.Component {
         this.gameLoop();
     }
 
+    componentWillUpdate(nextProps, nextState) {
+        if ((nextState.game.status == "won" || nextState.game.status == "failed") && 
+            this.state.game.status !== "loading") {
+                $("#myModal").modal();
+            }
+    }
+
     gameLoop(){
         ajax(`/games/${getGameId()}/status`, {},  (newStatus) => {
             this.setState(() => (newStatus), () => {
                 //Poll the status only if the game is not over
                 if (newStatus.game.status != "failed" && newStatus.game.status != "won"){
                     setTimeout(() => {this.gameLoop()}, 2000);
-                } else if (newStatus.game.status == "won"){
-                    $("#myModal").modal();
-                } else if (newStatus.game.status == "failed") {
-                    $("#myModal").modal();
-                }
+                } 
+                // else {
+                //     $("#myModal").modal();
+                // }
              });
         });
     }

@@ -36,3 +36,8 @@ def play(game_id):
 @jinja2_view('./backend/pages/index.html')
 def landing():
     return {"version" : utils.getVersion()}
+
+@pageHandler.get("/scores")
+@jinja2_view("./backend/pages/scores.html")
+def list_scores():
+    return {"version": utils.getVersion(), "players": controller.getTopplayers()}

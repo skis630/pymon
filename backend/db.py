@@ -3,6 +3,13 @@ from backend import dbutils
 def getAllGames():
     return dbutils.queryAll("SELECT * FROM game")
 
+def getTopScores():
+    return dbutils.queryAll("""
+        SELECT player, COUNT(*) as games_won FROM playergame WHERE status = 'won'
+        GROUP BY player
+        ORDER BY games_won DESC
+        LIMIT 10""")
+
 def getGame(game_id):
     return dbutils.queryOne("SELECT * FROM game where id = {}".format(game_id))
 
