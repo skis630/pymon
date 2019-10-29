@@ -1,5 +1,4 @@
 node_modules
 *.pyc
-frontend/dist
 */package-lock.json
 .idea
