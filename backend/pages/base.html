@@ -22,8 +22,11 @@
 
                 // Avatar picker handler
                 $(".avatar").click(function(e) {
-                    $(".avatar").removeClass("clicked");
-                    $(this).addClass("clicked");
+                    $(this).toggleClass("clicked");
+                    $(".avatar").not(this).each(function() {
+                        $(this).removeClass("clicked");
+                    });
+                    
 
                     let img_url = $(this).css("background-image");
                     img_url = img_url.substring(5, img_url.lastIndexOf('"'));
