@@ -27,12 +27,17 @@
                         $(this).removeClass("clicked");
                     });
                     
-
-                    let img_url = $(this).css("background-image");
-                    img_url = img_url.substring(5, img_url.lastIndexOf('"'));
-                    console.log(img_url);
-                    $("input[name='avatar']").val(img_url);
-
+                    let selected = $(".avatar.clicked");
+                    let img_url = "";
+                    if (selected.length > 0) {
+                        img_url = $(this).css("background-image");
+                        img_url = img_url.substring(5, img_url.lastIndexOf('"'));
+                        console.log(img_url);
+                        $("input[name='avatar']").val(img_url);
+                    } else {
+                        img_url = "https://cdn0.iconfinder.com/data/icons/cyptocurrency-line/32/anonymouscryptocurrency_crypto_people-512.png";
+                        $("input[name='avatar']").val(img_url);
+                    }
                 });
             })
         </script>
