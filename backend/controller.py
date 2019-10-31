@@ -16,6 +16,10 @@ def listGames():
 
 def joinGame(game_id, player_id):
     currentGame = db.getGame(game_id)
+    players = db.getGamePlayers(game_id)
+    if players and len(players) == 4:
+        print("change status")       
+        db.updateGameStatus(game_id, "full")
     if currentGame['status'] == "open":
         return db.joinGame(game_id, player_id)
     return False

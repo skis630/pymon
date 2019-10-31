@@ -102,6 +102,20 @@ h1{
     border-top: 3px solid #1e5799;
 }
 
+.full .ribbon span {
+    background: linear-gradient(#cc99ff 0%, #8000ff 100%)
+}
+
+.full .ribbon span::before {
+    border-left: 3px solid #8000ff ;
+    border-top: 3px solid #8000ff;
+}
+
+.full .ribbon span::after {
+    border-right: 3px solid #8000ff ;
+    border-top: 3px solid #8000ff ;
+}
+
 .won .ribbon span {
     background: linear-gradient(#7fdf7f 0%, #2fa81f 100%);
 }

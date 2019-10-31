@@ -212,6 +212,10 @@
     color:blue;
 }
 
+.game-status.full{
+    color: purple;
+}
+
 #back{
     position: relative;
     left: calc(-50% + 7%);
