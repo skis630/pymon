@@ -10,6 +10,8 @@ import Sequence from "./sequence";
 import BackBtn from "./back";
 import Modal from "../components/modal";
 
+let STEPS = 5;
+
 export default class SimonGame extends React.Component {
     constructor(){
         super();
@@ -20,11 +22,19 @@ export default class SimonGame extends React.Component {
         this.gameLoop();
     }
 
-    componentWillUpdate(nextProps, nextState) {
+    UNSAFE_componentWillUpdate(nextProps, nextState) {
         if ((nextState.game.status == "won" || nextState.game.status == "failed") && 
             this.state.game.status !== "loading") {
                 $("#myModal").modal();
             }
+        // if (nextState.players.length == STEPS) {
+        //     this.setState({
+        //         game: {
+        //             ...this.state.game,
+        //             status: "full",
+        //         }
+        //     })
+        // }
     }
 
     gameLoop(){
@@ -39,7 +49,7 @@ export default class SimonGame extends React.Component {
     }
 
     isViewMode(){
-        return this.state.user.status == "viewer" && this.state.game.status === "on";
+        return this.state.user.status == "viewer" && (this.state.game.status === "on" || this.state.players.length == STEPS);
     }
 
     render() {

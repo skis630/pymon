@@ -14,7 +14,7 @@ export default class Simon extends React.Component {
         });
     }
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         if (nextProps.disabled === false) {
             this.setState({disabled: false})
         } 

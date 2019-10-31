@@ -36,7 +36,7 @@ def newPlayerHandler():
     playerName = request.forms.get("name")
     avatar = request.forms.get("avatar")
     controller.createPlayer(playerName, avatar)
-    response.set_cookie("player", playerName, None, max_age=3600000, path='/')
+    response.set_cookie("player", playerName, max_age=3600000, path='/')
     redirect("/games")
 
 @app.post('/games')

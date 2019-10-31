@@ -15,7 +15,7 @@ export default class Players extends React.Component {
         this.setState(() => ({
             joinClicked:true
         }), () => { 
-            ajax(`/games/${getGameId()}/players`,{method: 'POST'});
+            ajax(`/games/${getGameId()}/players`,{method: 'POST', credentials: 'include'});
         });
     }
 

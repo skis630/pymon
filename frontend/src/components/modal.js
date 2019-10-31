@@ -8,7 +8,7 @@ export default class Modal extends React.Component {
                 <div className="modal-dialog">
                     <div className={`modal-content ${this.props.outcome}`}>
                         <div className="modal-header">
-                            {this.props.outcome == "won" && <h3>Game Won!</h3>}
+                            {this.props.outcome == "won" && <h3>Congratulations!</h3>}
                             <button type="button" className="close" data-dismiss="modal">&times;</button>
                         </div>
                         <div className="modal-body">

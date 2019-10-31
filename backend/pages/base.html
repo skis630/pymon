@@ -13,7 +13,7 @@
     </head>
     <body>
         {% block app %}{% endblock %}
-        <script class="game-filter" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script>
             $(document).ready(function() {
                 $('.game').hide();
@@ -49,17 +49,30 @@
 
                 // List relevant games
                 let status = $(this).text();
-                if (status == 'All') {
-                    $('.game').show();
-                } else if (status == 'Won') {
-                    $('.game').hide();
-                    $('.game.won').show();
-                } else if (status == 'Failed') {
-                    $('.game').hide();
-                    $('.game.failed').show();
-                } else if (status == 'Open') {
-                    $('.game').hide();
-                    $('.game.open').show();
+
+                switch(status) {
+                    case 'All':
+                        $('.game').show();
+                        break;
+                    case 'Won':
+                        $('.game').hide();
+                        $('.game.won').show();
+                        break;
+                    case 'Failed':
+                        $('.game').hide();
+                        $('.game.failed').show();
+                        break;
+                    case 'Open':
+                        $('.game').hide();
+                        $('.game.open').show();
+                        break;
+                    case 'Full':
+                        $('.game').hide();
+                        $('.game.full').show();
+                        break;
+                    default:
+                        $('.game').hide();
+                        $('.game.open').show();
                 }
             });
         </script>
