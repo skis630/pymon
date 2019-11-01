@@ -29,6 +29,20 @@ h1{
     border-top-right-radius: 20px;
 }
 
+.game .delete-game{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: whitesmoke;
+    border: none;
+    color: rosybrown;
+    font-size: 20px;
+}
+
+.game .delete-game:hover{
+    color: brown;
+}
+
 .game img{
     width: 100%;
     opacity: 0.5;

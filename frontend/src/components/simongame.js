@@ -56,7 +56,7 @@ export default class SimonGame extends React.Component {
                     <div className="game-name">{this.state.game.name}</div>
                     {(this.isViewMode()) && <div className="view-mode" >View mode</div>}
                     <div className={`game-status ${this.state.game.status}`}>{this.state.game.status}</div>
-                    <Players players={this.state.players} userName={this.state.user.name} showJoinBtn={ this.state.user.status == "viewer"} />
+                    <Players players={this.state.players} userName={this.state.user.name} showJoinBtn={this.state.user.status == "viewer"} />
                 </div>
             </div>
     }

@@ -18,10 +18,11 @@ def start():
 @jinja2_view('./backend/pages/games.html')
 def games():
     currentPlayer = request.get_cookie("player")
+    print(currentPlayer)
     if not currentPlayer:
         redirect("/start")
         return
-    return {"version" : utils.getVersion(), "games": controller.listGames()}
+    return {"version" : utils.getVersion(), "games": controller.listGames(), "player": currentPlayer}
 
 @pageHandler.get('/games/<game_id>')
 @jinja2_view('./backend/pages/game.html')
