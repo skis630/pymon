@@ -15,13 +15,13 @@
 {% for g in games %}
     <a class="game shadowed {{g.status}}" href="/games/{{g.id}}">
         {% if g.creator|string() == player|string() %}
-            <button title="Delete game" type="button" class="delete-game fas">&#xf1f8;</button>
+            <button data-url="/games/{{g.id}}" title="Delete game" type="button" class="delete-game fas" onclick="deleteGame(event)">
+                &#xf1f8;
+            </button>
         {% endif %}
         <div class="ribbon"><span>{{g.status}}</span></div>
         <img src="/images/simoncolor.png">
-        <div class="game-bottom">
-            {{g.name}}
-        </div>
+        <div class="game-bottom">{{g.name}}</div>
     </a>
 
 {% else %}

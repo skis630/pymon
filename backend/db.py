@@ -16,6 +16,12 @@ def getGame(game_id):
 def newGame(name, creator, sequence):
     return dbutils.updateOrInsert("INSERT INTO game (name, sequence, creator) VALUES ('{}', '{}', '{}')".format(name, sequence, creator))
 
+def deleteGame(game_id):
+    return dbutils.updateOrInsert("DELETE FROM game WHERE id = {}".format(game_id))
+
+def deleteGamePlayers(game_id):
+    return dbutils.updateOrInsert("DELETE FROM playergame WHERE game = {}".format(game_id))
+    
 def updateGameStatus(game_id, status):
     return dbutils.updateOrInsert("UPDATE game SET status = '{}' WHERE id = '{}' ".format(status, game_id))
 

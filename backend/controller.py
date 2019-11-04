@@ -14,6 +14,10 @@ def gameExists(game_id):
 def listGames():
     return db.getAllGames()
 
+def deleteGame(game_id):
+    db.deleteGamePlayers(game_id)
+    db.deleteGame(game_id)
+
 def joinGame(game_id, player_id):
     currentGame = db.getGame(game_id)
     players = db.getGamePlayers(game_id)

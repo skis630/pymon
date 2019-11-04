@@ -243,3 +243,14 @@
 img.avatar{
     height: 30px;
 }
+
+@media screen and (max-width: 700px) {
+    .main {
+        display: block;
+    }
+
+    .side {
+        width: 100%;
+        margin-top: 30px;
+    }
+}

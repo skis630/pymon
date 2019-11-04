@@ -42,7 +42,12 @@ def newPlayerHandler():
 @app.post('/games')
 def create():
     controller.createGame(request.forms.get("name"), request.get_cookie("player"))
-    redirect("/games")
+    redirect("/games/filter")
+
+@app.delete('/games/<game_id>')
+def deleteGame(game_id):
+    controller.deleteGame(game_id)
+    # redirect("/games")
 
 @app.error(404)
 @jinja2_view('./backend/pages/404.html')

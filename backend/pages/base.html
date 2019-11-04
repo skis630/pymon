@@ -15,6 +15,21 @@
         {% block app %}{% endblock %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script>
+            function deleteGame(event) {
+                event.preventDefault();
+
+                let url = event.target.getAttribute('data-url');
+                let filter = $('.clicked')[0].textContent.toLowerCase();
+
+                fetch(url, {
+                    method: 'DELETE',
+                    }).then(response => {
+                        $(`a[href='${url}']`).addClass('deleted');
+                        $('.game.deleted').hide();
+                    }).catch(response => console.log(response));
+            }
+        </script>
+        <script>
             $(document).ready(function() {
                 $('.game').hide();
                 $('.game.open').show();

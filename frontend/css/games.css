@@ -33,14 +33,17 @@ h1{
     position: absolute;
     top: 0;
     left: 0;
-    background-color: whitesmoke;
+    background-color: rosybrown;
+    padding: 5px;
     border: none;
-    color: rosybrown;
+    border-radius: 3px;
+    color: whitesmoke;
     font-size: 20px;
 }
 
 .game .delete-game:hover{
-    color: brown;
+    color: whitesmoke;
+    background-color: brown;
 }
 
 .game img{
